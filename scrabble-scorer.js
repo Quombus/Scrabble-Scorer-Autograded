@@ -15,12 +15,12 @@ const oldPointStructure = {
 
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
+let playerWord = ''; 
 
 function initialPrompt() {
-  console.log("Let's play some Scrabble!"); 
+   console.log("Let's play some Scrabble!"); 
+  console.log('');
   playerWord = input.question("Enter a word: ");
-  return playerWord;
-
 }
 
 let newPointStructure = transform(oldPointStructure);
@@ -78,29 +78,26 @@ let scrabbleScore = {
    scorerFunction: scrabbleScorer
 };
 
-
-
-
-   
-
 const scoringAlgorithms = [simpleScore, vowelBonusScore, scrabbleScore];
 
 function scorerPrompt() {
   console.log(`Which scoring algorithm would you like to use? :
-   0 - ${simpleScore.name} : ${simpleScore.description}
-   1 - ${vowelBonusScore.name} : ${vowelBonusScore.description}
-   2 - ${scrabbleScore.name} : ${scrabbleScore.description}`);
+
+0 - ${simpleScore.name} : ${simpleScore.description}
+1 - ${vowelBonusScore.name} : ${vowelBonusScore.description}
+2 - ${scrabbleScore.name} : ${scrabbleScore.description}`);
    
    let playerScorer = input.question("Enter 0, 1 or 2 : ");  
 
-   if (playerScorer == 0) { 
-      return console.log("Points " + simpleScore.scorerFunction(initialPrompt()));
+
+
+   if (playerScorer == 0) {
+      return console.log("Points " + simpleScore.scorerFunction(playerWord));
    } else if (playerScorer == 1) {
-      return console.log("Points " + vowelBonusScore.scorerFunction(initialPrompt()));
+      return console.log("Points " + vowelBonusScore.scorerFunction(playerWord));
    } else if (playerScorer == 2) {
-      return console.log("Points " + scrabbleScore.scorerFunction(initialPrompt()));
+      return console.log("Points " + scrabbleScore.scorerFunction(playerWord));
    }
-   
 }
 
 function transform(object) {
@@ -144,7 +141,7 @@ function runProgram() {
   initialPrompt();
   scorerPrompt();
 }
- 
+
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
 module.exports = {
