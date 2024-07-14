@@ -92,11 +92,11 @@ function scorerPrompt() {
 
 
    if (playerScorer == 0) {
-      return console.log("Points " + simpleScore.scorerFunction(playerWord));
+      return console.log("Points for '" + playerWord +"' : " + simpleScore.scorerFunction(playerWord));
    } else if (playerScorer == 1) {
-      return console.log("Points " + vowelBonusScore.scorerFunction(playerWord));
+      return console.log("Points for '" + playerWord +"' : " + vowelBonusScore.scorerFunction(playerWord));
    } else if (playerScorer == 2) {
-      return console.log("Points " + scrabbleScore.scorerFunction(playerWord));
+      return console.log("Points for '" + playerWord +"' : " + scrabbleScore.scorerFunction(playerWord));
    }
 }
 
