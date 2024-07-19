@@ -28,7 +28,7 @@ let newPointStructure = transform(oldPointStructure);
 let simpleScorer = function (word) {
    word = word.toUpperCase();
    let points = 0;
-   for (i = 0; i < word.length; i++) {
+   for (let i = 0; i < word.length; i++) {
      points += 1;
    }
    return points;
@@ -38,7 +38,7 @@ let vowelBonusScorer = function (word) {
    word = word.toUpperCase();
    let points = 0;
    let vowels = ["A", "E", "I", "O", "U"];
-   for (i = 0; i < word.length; i++) {
+   for (let i = 0; i < word.length; i++) {
      if (vowels.includes(word[i])) {
        points += 3;
      } else {
@@ -135,7 +135,7 @@ function transform(object) {
     }
   }
   return newObject;
-}
+} 
 
 function runProgram() {
   initialPrompt();
